@@ -14,7 +14,7 @@
       <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu}">
         <div class="navbar-end">
           <router-link to="/shoes" class="navbar-item">Shoes</router-link>
-          <router-link to="/others" class="navbar-item">Others</router-link>
+          <router-link to="/accessori" class="navbar-item">Accessori</router-link>
           <div class="navbar-item">
             <div class="buttons">
               <router-link to="/log-in" class="button is-light">Log In</router-link>
