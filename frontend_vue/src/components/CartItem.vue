@@ -5,7 +5,7 @@
         <td>
             {{ item.quantity }}
         </td>
-        <td>${{ getItemTotal(item).toFixed(2) }}</td>
+        <td>${{ getItemTotal(item) }}</td>
         <td><button class="delete"></button></td>
     </tr>
 </template>
