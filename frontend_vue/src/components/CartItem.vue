@@ -4,9 +4,11 @@
         <td>${{ item.product.price }}</td>
         <td>
             {{ item.quantity }}
+            <a @click="decrementQuantity(item)">-</a>
+            <a @click="incrementQuantity(item)">+</a>
         </td>
         <td>${{ getItemTotal(item) }}</td>
-        <td><button class="delete"></button></td>
+        <td><button class="delete" @click="removeFromCart(item)"></button></td>
     </tr>
 </template>
 
@@ -25,6 +27,28 @@ export default {
         getItemTotal(item) {
             return item.quantity * item.product.price
         },
+        incrementQuantity(item) {
+            console.log("add +1")
+            item.quantity += 1
+            this.updateCart()
+        },
+        decrementQuantity(item) {
+            console.log("add -1")
+            item.quantity -= 1
+            if (item.quantity === 0) {
+                this.$emit('removeFromCart', item)
+            }
+            this.updateCart()
+        },
+        updateCart() {
+            localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
+        },
+        removeFromCart() {
+            this.$emit('removeFromCart', item)
+
+            this.updateCart()
+        }
+
     },
 }
 </script>

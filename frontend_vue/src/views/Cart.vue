@@ -57,11 +57,13 @@ export default {
     },
     computed: {
         cartTotalLength() {
+            let acc = 0
             return this.carrello.items.reduce((acc, curVal) => {
                 return acc += currVal.quantity
             }, 0)
         },
         cartTotalPrice() {
+            let acc = 0
             return this.carrello.items.reduce((acc, curVal) => {
                 return acc += curVal.product.price * curVal.quantity
             }, 0)
