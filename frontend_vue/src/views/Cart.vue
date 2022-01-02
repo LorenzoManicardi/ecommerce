@@ -25,7 +25,7 @@
 
             <div class="column is-12 box">
                 <h2></h2>
-                <strong>${{ JSON.stringify(cartTotalPrice) }}</strong>, {{ JSON.stringify(carrello.cartTotalLength) }} items
+                <strong>${{ JSON.stringify(cartTotalPrice) }}</strong>, {{ JSON.stringify(cartTotalLength) }} items
                 <hr>
                 <router-link to="/cart/checkout" class="button is-dark">Go to Checkout</router-link>
             </div>
@@ -49,25 +49,28 @@ export default {
         return {
             carrello: {
                 items: []
-            }
+            },
+            cartTotalLengt: Object,
+            cartTotalPrice: Object,
         }
     },
     mounted() {
         this.carrello = this.$store.state.cart
     },
-    computed: {
+    methods: {
         cartTotalLength() {
-            let acc = 0
+            console.log(carrello)
+            console.log(JSON.stringify(carrello))
             return this.carrello.items.reduce((acc, curVal) => {
-                return acc += currVal.quantity
-            }, 0)
+            return acc += currVal.quantity
+        }, 0)
         },
         cartTotalPrice() {
-            let acc = 0
             return this.carrello.items.reduce((acc, curVal) => {
                 return acc += curVal.product.price * curVal.quantity
             }, 0)
         }
     },
+    
 }
 </script>
