@@ -50,8 +50,8 @@ export default {
             carrello: {
                 items: []
             },
-            cartTotalLengt: Object,
-            cartTotalPrice: Object,
+            cartTotalLength: 0,
+            cartTotalPrice: 0,
         }
     },
     mounted() {
