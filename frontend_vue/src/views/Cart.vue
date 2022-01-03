@@ -59,11 +59,9 @@ export default {
     },
     methods: {
         cartTotalLength() {
-            console.log(carrello)
-            console.log(JSON.stringify(carrello))
             return this.carrello.items.reduce((acc, curVal) => {
-            return acc += currVal.quantity
-        }, 0)
+                return acc += currVal.quantity
+            }, 0)
         },
         cartTotalPrice() {
             return this.carrello.items.reduce((acc, curVal) => {
